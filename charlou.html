@@ -1,53 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<style>
-.body {
-    background-color: blanchedalmond !important;
-}
-.container {
-    display: grid;
-    height: 500px;
-    width: 500px;
-    justify-content: center;
-    align-items: center;
-    place-items: center;
-    outline: 1px solid black;
-    margin: 0 auto;
-    background-color: burlywood;
-}
-.container > h3 {
-    outline: 1px solid black;
-    justify-content: center;
-    align-items: center;
-}
-.user {
-    left: 10px;
-}
-.container > input {
-    height: 30px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-</style>
-<body>
-    <div class="container">
-        <h3>Log In</h3>
-        <label class="user">Username</label>
-        <input id="username" type="text">
-        <label>Password</label>
-        <input id="password" type="text">
-        <input id="enter" type="button" value="Log In">
-    </div>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Login Page</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+        <style>
+            body {
+                background-color: #f2f2f2;
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+            .form-login {
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                padding: 20px;
+                margin: 50px auto;
+                max-width: 400px;
+            }
+            .form-signin {
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                padding: 20px;
+                margin: 50px auto;
+                max-width: 400px;
+            }
+            .form-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+            .form-container div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            label {
+                display: block;
+                margin-bottom: 10px;
+                color: #333;
+                text-align: left;
+            }
+            input[type="text"], input[type="password"] {
+                width: 100%;
+                padding: 10px 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+            input[type="submit"] {
+                background-color: #333;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            input[type="submit"]:hover {
+                background-color: #555;
+            }
+            .signup-link, .login-link {
+                margin-top: 20px;
+                text-align: center;
+            }
+            .signup-link > a, .login-link > a{
+                color: #333;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            .signup-link a:hover, .login-link a:hover{
+                color: #555;
+            }
+            .hide {
+                display: none;
+            }
+        </style>
+    </head>
+    <body class="animate__animated animate__fadeIn">
+        <div class="form-login animate__animated">
+            <h2>Login</h2>
+            <div class="loginForm">
+                <label>Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username"><br><br>
+                <label>Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+                <input type="submit" value="Login">
+            </div>
+        </div>
+        <div class="form-signin hide animate__animated">
+            <h2>Sign Up</h2>
+            <div class="signForm">
+                <label>Name:</label>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" style="flex: 1;">
+                    <input type="text" id="middle-name" name="middle-name" placeholder="Middle Name" style="flex: 1;">
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" style="flex: 1;">
+                </div><br><br>
+                <label>Additional Information about yourself (optional):</label>
+                <textarea id="new-desc" name="new-desc" placeholder="Description"></textarea><br><br>
+                <label>Username:</label>
+                <input type="text" id="new-username" name="new-username" placeholder="New username"><br><br>
+                <label>Password:</label>
+                <input type="password" id="new-password" name="new-password" placeholder="New password"><br><br>
+                <label>Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"><br><br>
+                <input type="submit" value="Sign Up">
+            </div>
+        </div>
+        <div class="signup-link">
+            <p>Don't have an Account? <a href="#" onclick="showSignUpForm()">Sign up here</a></p>
+        </div>
+
+        <div class="login-link  hide">
+            <p>Have an Account? <a href="#" onclick="showLogInForm()">Log In here</a></p>
+        </div>
+    </body>
+    <script>
+    function showSignUpForm() {
+        var login = document.querySelector(".form-login");
+        var signin = document.querySelector(".form-signin");
+        
+        var signupPhrase = document.querySelector(".signup-link");
+        var loginPhrase = document.querySelector(".login-link");
+
+        login.classList.add("animate__flipOutY");
+        setTimeout(function() {
+            login.classList.add("hide");
+            signin.classList.remove("hide");
+
+            signin.classList.add("animate__flipInY");
+
+            signupPhrase.classList.add("hide");
+            loginPhrase.classList.remove("hide");
+            
+            login.classList.remove("animate__flipOutY");
+        }, 500);
+           
+    }
+    function showLogInForm() {
+        var login = document.querySelector(".form-login");
+        var signin = document.querySelector(".form-signin");
+        
+        var signupPhrase = document.querySelector(".signup-link");
+        var loginPhrase = document.querySelector(".login-link");
+
+        signin.classList.add("animate__flipOutY");
+        setTimeout(function() {
+            login.classList.remove("hide");
+            signin.classList.add("hide");
+
+            login.classList.add("animate__flipInY");
+
+            signupPhrase.classList.remove("hide");
+            loginPhrase.classList.add("hide");
+
+            signin.classList.remove("animate__flipOutY");
+        }, 500);  
+    }
+
+    </script>
+    </html>
