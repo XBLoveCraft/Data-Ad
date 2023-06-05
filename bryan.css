@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    background-color: #c9e1f5;
+    color: #29353d;
+}
+
+header {
+    background-color: #76afe7;
+    color: #29353d;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 7%;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.header li {
+    margin: 0 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 5%;
+    padding-right: 60px;
+}
+
+.header li:not(:last-child) {
+    margin-right: 10px; /* Add the desired space between the links */
+}
+
+.header li a {
+    color: #333;
+    text-decoration: none;
+}
+
+main {
+    margin-top: 60px; /* Adjust this value to give space for the header */
+    display: flex;
+}
+
+.sidebar {
+    background-color: #acd3fb;
+    width: 12%;
+    position: fixed;
+    padding-top: 55px;
+    left: 0;
+    height: 100vh; /* Adjust this value to match the desired height */
+    overflow-y: auto;
+    display: flex;
+    margin: 8px 0px;
+}
+
+.sidebar ul li {
+    list-style-type: none;
+    padding-left: 40%;
+    margin-top: -35%;
+    padding-bottom: 80%;
+    width: 100%;    
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content {
+    margin-left: 200px; /* Adjust this value to match the width of the sidebar */
+    padding: 10px;
+    background-color: #c9e1f5;
+    color: #29353d;
+}
+
